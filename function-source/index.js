@@ -6,16 +6,11 @@ const subfix_array = env.split(".");
 const storage = new Storage();
 
 functions.cloudEvent('entryPoint',  async cloudEvent => {
-  console.log("========Cloud Event========== Start")
-  console.log(JSON.stringify(cloudEvent, null, 4));
-  console.log("========Cloud Event========== End")
 
   const file = cloudEvent.data;
   console.log(`Bucket: ${file.bucket}`);
   console.log(`File: ${file.name}`);
-  console.log(`Metageneration: ${file.metageneration}`);
-  console.log(`Created: ${file.timeCreated}`);
-  console.log(`Updated: ${file.updated}`);
+
   if (subfix_array.indexOf(file.name.split('.').pop()) > -1) {
     console.log(`File Subfix: ${file.name.split('.').pop()}`);
     const bucketName = file.bucket;
