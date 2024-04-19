@@ -1,17 +1,18 @@
-## 如何使用
-### 设置GCP认证
+[中文版](README_zh.md)
+## How to Deploy
+### GCP Credentials setup
 ```shell
 gcloud auth application-default login
 或者
 GOOGLE_CREDENTIALS=service-account-key-xxxx.json
 ```
-### 部署，注意替换环境变量中的项目ID和域名
+### Deploy the resource, replace the variables with your's
 ```shell
-cd examples
+cd gcp-cloud-function-gcs-meta-manager/
 terraform init
-terraform apply -var="project_id=PROJECT_ID" -var="region=us-central1"  -var="trigger_bucket=BUCKET_NAME" -var="subfix=lua"  -var="region=us-central1" --auto-approve
+terraform apply -var="project_id=PROJECT_ID" -var="region=REGION"  -var="trigger_bucket=BUCKET_NAME" -var="subfix=xxx"  --auto-approve
 ```
-### 销毁资源
+### Delete all resource
 ```shell
-terraform destroy -var="project_id=PROJECT_ID" -var="region=us-central1"  -var="trigger_bucket=BUCKET_NAME" -var="subfix=lua"  -var="region=us-central1" --auto-approve
+terraform destroy -var="project_id=PROJECT_ID" -var="region=REGION"  -var="trigger_bucket=BUCKET_NAME" -var="subfix=xxx" --auto-approve
 ```
